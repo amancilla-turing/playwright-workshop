@@ -1,0 +1,19 @@
+{
+    "Pickup":{
+        "firstName":"Emmet",
+        "lastName":"Brown",
+        "email":"emmet.brown@email.com",
+        "phone":"0410111111",
+        "eventOccasion":"Birthday",
+        "guests":"50"
+    },
+    "Delivery":{
+        "firstName":"Marty",
+        "lastName":"McFly",
+        "email":"marty.mcfly@email.com",
+        "phone":"0410111111",
+        "eventOccasion":"Corporate event",
+        "guests":"28",
+        "address":"10 Carlisle st, St Kilda VIC 3182"
+    }
+}
