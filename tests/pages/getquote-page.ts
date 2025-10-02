@@ -36,10 +36,12 @@ export class GetQuotePage{
     }
 
     async goto(){
+        const responsePromise = this.page.waitForResponse('**/backend/graphql-mock.web.js/**'); 
         await this.page.goto('https://www.turingconsulting.com.au/playwright-workshop');
+        
          //Waiting for simulated GraphQL/API call to be complete before moving to next steps - This is just for the workshop
         //if we don't wait for this it causes issues with the dropdown selection
-        await this.page.waitForRequest('**/backend/graphql-mock.web.js/**')
+        const response = await responsePromise;
         await expect(this.firstName).not.toBeEmpty(); //This is populated by the simulated API called, proof that page is ready
     }
 
