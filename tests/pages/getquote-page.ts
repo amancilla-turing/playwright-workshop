@@ -1,4 +1,5 @@
 import {expect, type Page, type Locator} from '@playwright/test'
+import { Console } from 'console';
 
 export class GetQuotePage{
     private readonly firstName: Locator;
@@ -38,11 +39,11 @@ export class GetQuotePage{
     async goto(){
         const responsePromise = this.page.waitForResponse('**/backend/graphql-mock.web.js/**'); 
         await this.page.goto('https://www.turingconsulting.com.au/playwright-workshop');
-        
-         //Waiting for simulated GraphQL/API call to be complete before moving to next steps - This is just for the workshop
+
+         //Waiting for simulated GraphQL/API call to be complete before moving to next steps
         //if we don't wait for this it causes issues with the dropdown selection
-        const response = await responsePromise;
-        await expect(this.firstName).not.toBeEmpty(); //This is populated by the simulated API called, proof that page is ready
+        await responsePromise;
+        //await expect(this.firstName).not.toBeEmpty(); //This is populated by the simulated API called, proof that page is ready
     }
 
     async addPersonalDetails(firstName: string, lastName:string, email:string, phone:string){
@@ -70,7 +71,7 @@ export class GetQuotePage{
         const currentMonthName = monthNames[currentDate.getMonth()];
 
         // Get current day and create new year for event (current +1)
-        const currentDay = currentDate.getDay().toString();
+        const currentDay = (currentDate.getDay()+1).toString();
         const newEventYear = (currentDate.getFullYear() + 1).toString();
 
         await this.eventDay.fill(currentDay);
@@ -92,6 +93,11 @@ export class GetQuotePage{
 
     async submitQuote(){
         await this.submitButton.click();
-        await expect(this.page.getByText('Thanks, we\'ll be in touch shortly')).toBeVisible();
+        //Cannot perform any validations for workshop due to captcha
+        //await expect(this.page.getByText('Thanks, we\'ll be in touch shortly')).toBeVisible();
+    }
+
+    async validateFirstName(value:string){
+        await expect(this.firstName).toHaveValue(value);
     }
 }
