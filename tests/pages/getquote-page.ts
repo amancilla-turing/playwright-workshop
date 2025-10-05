@@ -82,10 +82,10 @@ export class GetQuotePage{
         await this.eventTimeMinutes.fill('00');
     }
 
-    async addDeliveryMethod(deliveryMethod:string, address:string){
+    async addDeliveryMethod(deliveryMethod:string, address:string = ""){
         if (deliveryMethod == 'Pickup'){
             await this.deliveryMethodPickup.click();
-        }else{
+        }else{ //Address is only needed when method is 'Delivery'
             await this.deliveryMethodDelivery.click();
             await this.deliveryAddress.fill(address);
         };

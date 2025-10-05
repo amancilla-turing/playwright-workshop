@@ -29,7 +29,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on', //'on-first-retry','retain-on-failure'
+    trace:  'on-first-retry', //'retain-on-failure'
     video: 'off',
     screenshot: 'only-on-failure',
   },
@@ -48,10 +48,10 @@ export default defineConfig({
       //dependencies: ['setup'], // ensures setup runs first
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
     {
       name: 'webkit',

@@ -14,7 +14,7 @@ test.describe('Successful Quote Submissions',()=>{
             getQuoteData.Pickup.guests
         );
         await getQuotePage.addEventDate();
-        await getQuotePage.addDeliveryMethod('Pickup','');
+        await getQuotePage.addDeliveryMethod('Pickup');
         await getQuotePage.submitQuote();
     });
 
