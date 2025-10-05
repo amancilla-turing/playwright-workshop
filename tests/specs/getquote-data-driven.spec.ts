@@ -1,7 +1,7 @@
 import {test} from '../fixtures/getquote-fixture';
 import getQuoteData from '../data/getQuoteData-DataDriven.json';
 
-test.describe('Successful Quote Submissions - Data Driven',()=>{
+test.describe('Successful Quote Submissions - Data Driven',{tag:'@shakeout',}, ()=>{
     getQuoteData.forEach((data) =>{
         test(`${data.method} quote request submitted successfully`, async ({getQuotePage}) => {
             await getQuotePage.addPersonalDetails(
