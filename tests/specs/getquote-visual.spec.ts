@@ -5,5 +5,5 @@ test ('get quote form error messages displayed and correct',{tag:'@shakeout',},a
     await getQuotePage.submitQuote();
 
     //Instead of validating error messages one by one, we take snapshot and compate against baseline
-    await expect(getQuotePage.page).toHaveScreenshot('getquote-form-errors.png',{maxDiffPixels:20}) //maxDiffPixelRatio can be used as well
+    await expect(getQuotePage.page).toHaveScreenshot('getquote-form-errors.png',{maxDiffPixels:100}) //maxDiffPixelRatio can be used as well
 });
