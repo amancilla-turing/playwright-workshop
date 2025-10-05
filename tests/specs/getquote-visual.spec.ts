@@ -1,4 +1,4 @@
-import {test,expect} from './fixtures/getquote-fixture';
+import {test,expect} from '../fixtures/getquote-fixture';
 
 test ('get quote form error messages displayed and correct',{tag:'@shakeout',},async ({getQuotePage}) => {
     //Submit quote to get form to throw field validation errors

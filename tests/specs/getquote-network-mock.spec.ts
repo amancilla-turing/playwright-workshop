@@ -1,4 +1,4 @@
-import {test,expect} from './fixtures/getquote-fixture';
+import {test} from '../fixtures/getquote-fixture';
 
 test ('simulated API called is not made and response mocked', async ({getQuotePage}) => {
     //mocking API call before navigating 

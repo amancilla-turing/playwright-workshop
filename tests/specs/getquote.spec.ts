@@ -1,5 +1,5 @@
-import {test,expect} from './fixtures/getquote-fixture';
-import getQuoteData from './data/getQuoteData.json';
+import {test} from '../fixtures/getquote-fixture';
+import getQuoteData from '../data/getQuoteData.json';
 
 test.describe('Successful Quote Submissions',()=>{
     test('pickup quote request submitted successfully', async ({getQuotePage}) => {

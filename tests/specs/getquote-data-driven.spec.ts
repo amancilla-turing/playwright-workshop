@@ -1,5 +1,5 @@
-import {test,expect} from './fixtures/getquote-fixture';
-import getQuoteData from './data/getQuoteData-DataDriven.json';
+import {test} from '../fixtures/getquote-fixture';
+import getQuoteData from '../data/getQuoteData-DataDriven.json';
 
 test.describe('Successful Quote Submissions - Data Driven',()=>{
     getQuoteData.forEach((data) =>{
