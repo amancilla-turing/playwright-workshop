@@ -1,6 +1,6 @@
 import {test,expect} from './fixtures/getquote-fixture';
 
-test ('Simulated API called is not made and response mocked', async ({getQuotePage}) => {
+test ('simulated API called is not made and response mocked', async ({getQuotePage}) => {
     //mocking API call before navigating 
     await getQuotePage.page.route('**/backend/graphql-mock.web.js/**', async route => {
         const json = {
@@ -23,7 +23,7 @@ test ('Simulated API called is not made and response mocked', async ({getQuotePa
     await getQuotePage.validateFirstName('Workshop')
 });
 
-test('Simulated API response reteived and updated', async ({getQuotePage}) => {
+test('simulated API response reteived and updated', async ({getQuotePage}) => {
     //Get the response from simulated API call and update it
     await getQuotePage.page.route('**/backend/graphql-mock.web.js/**', async route=> {
         const response = await route.fetch();
@@ -40,7 +40,7 @@ test('Simulated API response reteived and updated', async ({getQuotePage}) => {
     await getQuotePage.validateFirstName('Modified');
 });
 
-test('Simulated API response mocked with 400 status', async ({getQuotePage}) => {
+test('simulated API response mocked with 400 status', async ({getQuotePage}) => {
     //Get the response from simulated API call and update it
     await getQuotePage.page.route('**/backend/graphql-mock.web.js/**', async route=> {
         const response = await route.fetch();

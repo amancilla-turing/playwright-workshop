@@ -1,6 +1,6 @@
 import {test,expect} from './fixtures/getquote-fixture';
 
-test ('Get quote form error messages displayed and correct', async ({getQuotePage}) => {
+test ('get quote form error messages displayed and correct', async ({getQuotePage}) => {
     //Submit quote to get form to throw field validation errors
     await getQuotePage.submitQuote();
 

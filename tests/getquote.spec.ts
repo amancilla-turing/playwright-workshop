@@ -33,9 +33,4 @@ test.describe('Successful Quote Submissions',()=>{
         await getQuotePage.addDeliveryMethod('Delivery',getQuoteData.Delivery.address);
         await getQuotePage.submitQuote();
     });
-
 });
-
-// test.describe('Quote Form Validations',()=>{
-    
-// })
