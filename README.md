@@ -6,12 +6,13 @@ This repository supports the hands-on **Advanced Playwright Features Workshop** 
 
 During this 2.5-hour interactive workshop, we explore advanced Playwright concepts including:
 
+* POM and reusable fixtures
 * Network mocking and request interception for real-time API validation
 * Visual regression testing
 * Data-driven testing
+* Test data management
 * Parallel execution and browser context isolation
-* Test data management and reusable fixtures
-* Integrating Playwright into CI/CD pipelines
+* Integrating Playwright into CI/CD - GitHub Actions
 
 At the end of the session, you’ll understand how to design a scalable, maintainable Playwright framework for modern web testing.
 
@@ -21,6 +22,7 @@ Make sure you have the following installed:
 
 * **Node.js** (version 18 or higher)
 * **npm** or **yarn**
+* **Git** (to clone the repository) – download from [https://git-scm.com/downloads](https://git-scm.com/downloads)
 * A code editor such as **VS Code**
 
 ## ⚙️ Setup & Installation
@@ -32,6 +34,14 @@ git clone https://github.com/amancilla-turing/playwright-workshop.git
 cd playwright-workshop
 npm install
 ```
+
+**Note:** If you don’t have Git installed, you can click **“Code → Download ZIP”** on the GitHub page, extract the folder, open a terminal inside it, and then run:
+
+```bash
+npm install
+```
+
+**Note:** You don’t need to install Playwright separately — it’s already included as a dev dependency in this project. Just run `npm install`.
 
 Install Playwright browsers:
 
