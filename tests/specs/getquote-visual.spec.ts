@@ -1,10 +1,16 @@
 import {test,expect} from '../fixtures/getquote-fixture';
+import getQuoteData from '../data/getQuoteData.json'
 
 test.skip(({ browserName }) => browserName !== 'chromium', 'Chromium only!');
 
 test ('get quote form error messages displayed and correct',async ({getQuotePage}) => {
     //Remove data populated by simulated API call
-    await getQuotePage.addPersonalDetails('','','','');
+    await getQuotePage.addPersonalDetails(
+        getQuoteData.InvalidData.firstName,
+        getQuoteData.InvalidData.lastName,
+        getQuoteData.InvalidData.email,
+        getQuoteData.InvalidData.phone
+    );
     
     //Submit quote to get form to throw field validation errors
     await getQuotePage.submitQuote();

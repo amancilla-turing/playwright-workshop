@@ -15,5 +15,14 @@
         "eventOccasion":"Corporate event",
         "guests":"28",
         "address":"10 Carlisle st, St Kilda VIC 3182"
+    },
+    "InvalidData":{
+        "firstName":"",
+        "lastName":"",
+        "email":"invalid.email",
+        "phone":"",
+        "eventOccasion":"invalid",
+        "guests":"",
+        "address":""
     }
 }
