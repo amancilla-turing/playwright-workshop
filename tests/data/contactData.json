@@ -1,0 +1,14 @@
+{
+  "valid": {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "organisation": "Acme Corp",
+    "message": "I would like to discuss quality engineering and automation for our enterprise."
+  },
+  "minimal": {
+    "name": "Test User",
+    "email": "test@example.com",
+    "organisation": "Test Org",
+    "message": "Short message."
+  }
+}
