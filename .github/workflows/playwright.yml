@@ -31,6 +31,17 @@ jobs:
           PLAYWRIGHT_JUNIT_OUTPUT_NAME: results.xml
         run: npx playwright test contact.spec.ts --reporter=junit,html
 
+      - name: Debug Pulse webhook URL (safe)
+        if: ${{ !cancelled() }}
+        env:
+          PULSE_WEBHOOK_URL: ${{ secrets.PULSE_WEBHOOK_URL }}
+        run: |
+          echo "Pulse URL scheme+host:"
+          echo "$PULSE_WEBHOOK_URL" | sed -E 's#(https?://[^/]+).*#\1#'
+
+          echo "Pulse URL path prefix:"
+          echo "$PULSE_WEBHOOK_URL" | sed -E 's#https?://[^/]+(/[^?]*).*#\1#' | cut -c1-60
+
       - name: Send JUnit to qTest Pulse
         if: ${{ !cancelled() }}
         env:
