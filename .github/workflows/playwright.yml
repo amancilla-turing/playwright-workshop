@@ -39,16 +39,34 @@ jobs:
           QTEST_PROJECT_ID: ${{ secrets.QTEST_PROJECT_ID }}
           QTEST_TEST_CYCLE_ID: ${{ secrets.QTEST_TEST_CYCLE_ID }}
         run: |
+          set -e
+
+          echo "Checking results.xml exists..."
+          ls -la
+          test -f results.xml
+
           RESULT_B64=$(base64 -w 0 results.xml)
 
-          curl -sS -X POST "$PULSE_WEBHOOK_URL" \
+          echo "Posting to Pulse..."
+          http_code=$(curl -sS -o /tmp/pulse_response.json -w "%{http_code}" \
+            -X POST "$PULSE_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
             -d "{
               \"projectId\": \"$QTEST_PROJECT_ID\",
               \"testcycle\": \"$QTEST_TEST_CYCLE_ID\",
               \"result\": \"$RESULT_B64\",
               \"secret\": \"$PULSE_SHARED_SECRET\"
-            }"
+            }")
+
+          echo "Pulse HTTP status: $http_code"
+          echo "Pulse response:"
+          cat /tmp/pulse_response.json || true
+
+          # Fail the job if Pulse didn't accept it
+          if [ "$http_code" -lt 200 ] || [ "$http_code" -ge 300 ]; then
+            echo "Pulse call failed"
+            exit 1
+          fi
 
       - name: Upload Playwright HTML report artifact
         if: ${{ !cancelled() }}
