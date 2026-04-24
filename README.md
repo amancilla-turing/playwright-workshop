@@ -3,7 +3,7 @@
 This repository supports the hands-on **Advanced Playwright Features Workshop** delivered at Testing Talks. It is designed for attendees and engineers who want to explore powerful Playwright techniques to elevate their test automation skills using **TypeScript**.
 
 ## 🎯 Workshop Overview
-
+## Testing
 During this 2.5-hour interactive workshop, we explore advanced Playwright concepts including:
 
 * POM and reusable fixtures
